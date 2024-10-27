@@ -1,0 +1,568 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --accent-color: #2E7D32;
+    --text-color: #333;
+    --background-color: #E8F5E9;
+    --card-background: #FFFFFF;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--background-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--background-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px; 
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all var(--transition-speed) ease;
+}
+
+main {
+    padding-top: 80px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background-image: url('images/syknet1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(14, 14, 14, 0.8), rgba(20, 20, 20, 0.8));
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #E8F5E9;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #E8F5E9;
+}
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity var(--transition-speed);
+}
+
+.dots span:hover {
+    opacity: 1;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    
+}
+
+.cta-button:hover {
+    background-color: #f1c40f;
+    transform: scale(1.05);
+}
+
+.features, .apps, .tutorials, .resources {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.features h2, .apps h2, .tutorials h2, .resources h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #45a049;
+}
+}
+
+.features-grid, .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card, .resource-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform var(--transition-speed);
+    backdrop-filter: blur(10px);
+}
+
+.feature-card:hover, 
+.resource-card:hover {
+    transform: translateY(-10px);
+    color: #45a049;
+}
+
+.feature-card i,
+.resource-card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3,
+.resource-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.apps-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.app-card {
+    flex: 0 0 auto;
+    width: 250px;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    scroll-snap-align: center;
+    transition: transform var(--transition-speed);
+    backdrop-filter: blur(10px);
+}
+
+.app-card:hover {
+    transform: scale(1.05);
+    
+}
+
+.app-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.app-button,
+.tutorial-button,
+.resource-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+}
+
+.app-button:hover,
+.tutorial-button:hover,
+.resource-button:hover {
+    background-color: #f1c40f;
+}
+
+.tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tutorial-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform var(--transition-speed);
+    backdrop-filter: blur(10px);
+}
+
+.tutorial-card:hover {
+    transform: translateY(-10px);
+}
+
+.tutorial-card img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+}
+
+.view-all-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.view-all-button:hover {
+    background-color: #f1c40f;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--background-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 25px 0 0 25px;
+}
+
+.newsletter-form button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.newsletter-form button:hover {
+    background-color: #f1c40f;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #f1c40f;
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #f1c40f;
+    display: none;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+}
+
+.chat-header {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: var(--background-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.message.bot {
+    background-color: var(--secondary-color);
+    align-self: flex-start;
+}
+
+.message.user {
+    background-color:#1877F2;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.send-message {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.open-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f1c40f;
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 999;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 100vh;
+        top: 0;
+        background-color: var(--secondary-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform var(--transition-speed) ease-in;
+        z-index: 1001;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 1rem 0;
+    }
+
+    .burger {
+        display: block;
+        z-index: 1002;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .chat-box {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .open-chat {
+        bottom: 10px;
+        right: 10px;
+    }
+}
